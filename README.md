@@ -1,7 +1,5 @@
 # Multibot_Waiting_his_creator
 
-Bien sûr ! Voici un texte clair, respectueux et bien formulé en anglais que vous pouvez inclure dans votre `README.md` pour expliquer la situation :
-
 ---
 
 ## ⚠️ Notice — About This Fork
