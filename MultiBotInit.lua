@@ -37,7 +37,7 @@ tLeft.addButton("Tanker", -170, 0, "ability_warrior_shieldbash", MultiBot.tips.t
 	if(MultiBot.isTarget()) then MultiBot.ActionToGroup("@tank do attack my target") end
 end
 
--- ATTACK --
+--[[-- ATTACK --
 
 local tButton = tLeft.addButton("Attack", -136, 0, "Interface\\AddOns\\MultiBot\\Icons\\attack.blp", MultiBot.tips.attack.master)
 tButton.doRight = function(pButton)
@@ -96,7 +96,65 @@ tButton.doRight = function(pButton)
 end
 tButton.doLeft = function(pButton)
 	if(MultiBot.isTarget()) then MultiBot.ActionToGroup("@tank do attack my target") end
+end]]--
+
+-- --------------------------------------------------------------------
+--  UI ATTACK REFORGED --
+-- --------------------------------------------------------------------
+function MultiBot.BuildAttackUI(tLeft)
+
+  -- 1. Table
+  local ATTACK_BUTTONS = {
+    -- label          icon                                                           command                           tip-key (MultiBot.tips.attack.<key>)
+    { name="Attack",  icon="Interface\\AddOns\\MultiBot\\Icons\\attack.blp",         cmd="do attack my target",        tip="attack" },
+    { name="Ranged",  icon="Interface\\AddOns\\MultiBot\\Icons\\attack_ranged.blp",  cmd="@ranged do attack my target",tip="ranged" },
+    { name="Melee",   icon="Interface\\AddOns\\MultiBot\\Icons\\attack_melee.blp",   cmd="@melee do attack my target", tip="melee"  },
+    { name="Healer",  icon="Interface\\AddOns\\MultiBot\\Icons\\attack_healer.blp",  cmd="@healer do attack my target",tip="healer" },
+    { name="Dps",     icon="Interface\\AddOns\\MultiBot\\Icons\\attack_dps.blp",     cmd="@dps do attack my target",   tip="dps"    },
+    { name="Tank",    icon="Interface\\AddOns\\MultiBot\\Icons\\attack_tank.blp",    cmd="@tank do attack my target",  tip="tank"   },
+  }
+
+  -- 2. Helper
+  local function AddAttackButton(frame, info, index, cellH)
+    local btn = frame.addButton(info.name,
+                                0,                          -- x
+                                (index-1)*cellH,            -- y
+                                info.icon,
+                                MultiBot.tips.attack[info.tip])
+
+    -- Left Click shoot the command only if target exist
+    btn.doLeft  = function()
+      if MultiBot.isTarget() then
+        MultiBot.ActionToGroup(info.cmd)
+      end
+    end
+
+    -- Right click : select as default
+    btn.doRight = function(b)
+      MultiBot.SelectToGroupButtonWithTarget(b.parent.parent, "Attack", b.texture, info.cmd)
+    end
+  end
+
+  -- 3. Main Button
+  local mainBtn = tLeft.addButton("Attack", -136, 0,
+                                  "Interface\\AddOns\\MultiBot\\Icons\\attack.blp",
+                                  MultiBot.tips.attack.master)
+
+  mainBtn.doLeft  = function() if MultiBot.isTarget() then MultiBot.ActionToGroup("do attack my target") end end
+  mainBtn.doRight = function(b) MultiBot.ShowHideSwitch(b.parent.frames["Attack"]) end
+
+  -- 4. Internal Frame with Buttons
+  local tAttack = tLeft.addFrame("Attack", -138, 34)
+  tAttack:Hide()
+
+  local CELL_H = 30
+  for idx, data in ipairs(ATTACK_BUTTONS) do
+    AddAttackButton(tAttack, data, idx, CELL_H)
+  end
 end
+
+--  We call it when tLeft are ready
+MultiBot.BuildAttackUI(tLeft)
 
 -- MODE --
 
@@ -179,7 +237,7 @@ end
 
 -- FLEE --
 
-local tButton = tLeft.addButton("Flee", -34, 0, "Interface\\AddOns\\MultiBot\\Icons\\flee.blp", MultiBot.tips.flee.master)
+--[[local tButton = tLeft.addButton("Flee", -34, 0, "Interface\\AddOns\\MultiBot\\Icons\\flee.blp", MultiBot.tips.flee.master)
 tButton.doRight = function(pButton)
 	MultiBot.ShowHideSwitch(pButton.parent.frames["Flee"])
 end
@@ -244,9 +302,64 @@ tButton.doRight = function(pButton)
 end
 tButton.doLeft = function(pButton)
 	MultiBot.ActionToTarget("flee")
+end]]--
+
+--  UI FLEE REFORGED --
+function MultiBot.BuildFleeUI(tLeft)
+
+  -- 1. Table
+  local FLEE_BUTTONS = {
+    -- label          icon                                                            cmd / taget          tip-key (MultiBot.tips.flee.<key>)
+    { name="Flee",    icon="Interface\\AddOns\\MultiBot\\Icons\\flee.blp",            cmd="flee",          tip="flee",     scope="group"  },
+    { name="Ranged",  icon="Interface\\AddOns\\MultiBot\\Icons\\flee_ranged.blp",     cmd="@ranged flee",  tip="ranged",   scope="group"  },
+    { name="Melee",   icon="Interface\\AddOns\\MultiBot\\Icons\\flee_melee.blp",      cmd="@melee flee",   tip="melee",    scope="group"  },
+    { name="Healer",  icon="Interface\\AddOns\\MultiBot\\Icons\\flee_healer.blp",     cmd="@healer flee",  tip="healer",   scope="group"  },
+    { name="Dps",     icon="Interface\\AddOns\\MultiBot\\Icons\\flee_dps.blp",        cmd="@dps flee",     tip="dps",      scope="group"  },
+    { name="Tank",    icon="Interface\\AddOns\\MultiBot\\Icons\\flee_tank.blp",       cmd="@tank flee",    tip="tank",     scope="group"  },
+    { name="Target",  icon="Interface\\AddOns\\MultiBot\\Icons\\flee_target.blp",     cmd="flee",          tip="target",   scope="target" },
+  }
+
+  -- 2. Helper to create vertival buttons
+  local function AddFleeButton(frame, info, index, cellH)
+    local btn = frame.addButton(info.name,
+                                0,                           -- x
+                                (index-1)*cellH,             -- y
+                                info.icon,
+                                MultiBot.tips.flee[info.tip])
+
+    if info.scope == "target" then
+      -- Left click action, right click action
+      btn.doLeft  = function() MultiBot.ActionToTarget(info.cmd) end
+      btn.doRight = function(b) MultiBot.SelectToTargetButton(b.parent.parent,"Flee",b.texture,info.cmd) end
+    else
+      -- scope group/role
+      btn.doLeft  = function() MultiBot.ActionToGroup(info.cmd) end
+      btn.doRight = function(b) MultiBot.SelectToGroupButton(b.parent.parent,"Flee",b.texture,info.cmd) end
+    end
+  end
+
+  -- 3. Maint Button
+  local mainBtn = tLeft.addButton("Flee", -34, 0,
+                                  "Interface\\AddOns\\MultiBot\\Icons\\flee.blp",
+                                  MultiBot.tips.flee.master)
+
+  mainBtn.doLeft  = function() MultiBot.ActionToGroup("flee") end
+  mainBtn.doRight = function(b) MultiBot.ShowHideSwitch(b.parent.frames["Flee"]) end
+
+  -- 4. Internal Frame + vertical buttons
+  local tFlee = tLeft.addFrame("Flee", -36, 34)
+  tFlee:Hide()
+
+  local CELL_H = 30   -- space between buttons
+  for idx, data in ipairs(FLEE_BUTTONS) do
+    AddFleeButton(tFlee, data, idx, CELL_H)
+  end
 end
 
--- FORMATION --
+--  We call it when tLeft are ready
+MultiBot.BuildFleeUI(tLeft)
+
+--[[-- FORMATION --
 
 local tButton = tLeft.addButton("Format", -0, 0, "Interface\\AddOns\\MultiBot\\Icons\\formation_near.blp", MultiBot.tips.format.master)
 tButton.doRight = function(pButton)
@@ -297,7 +410,59 @@ end
 tFormat.addButton("Shield", 0, 210, "Interface\\AddOns\\MultiBot\\Icons\\formation_shield.blp", MultiBot.tips.format.shield)
 .doLeft = function(pButton)
 	MultiBot.SelectToGroup(pButton.parent.parent, "Format", pButton.texture, "formation shield")
+end]]--
+
+--  UI FORMATION REFORGED --
+function MultiBot.BuildFormationUI(tLeft)
+  -- 1. Formation Table
+  local FORMATION_BUTTONS = {
+    { name = "Arrow",  icon = "Interface\\AddOns\\MultiBot\\Icons\\formation_arrow.blp",  cmd = "formation arrow"  },
+    { name = "Queue",  icon = "Interface\\AddOns\\MultiBot\\Icons\\formation_queue.blp",  cmd = "formation queue"  },
+    { name = "Near",   icon = "Interface\\AddOns\\MultiBot\\Icons\\formation_near.blp",   cmd = "formation near"   },
+    { name = "Melee",  icon = "Interface\\AddOns\\MultiBot\\Icons\\formation_melee.blp",  cmd = "formation melee"  },
+    { name = "Line",   icon = "Interface\\AddOns\\MultiBot\\Icons\\formation_line.blp",   cmd = "formation line"   },
+    { name = "Circle", icon = "Interface\\AddOns\\MultiBot\\Icons\\formation_circle.blp", cmd = "formation circle" },
+    { name = "Chaos",  icon = "Interface\\AddOns\\MultiBot\\Icons\\formation_chaos.blp",  cmd = "formation chaos"  },
+    { name = "Shield", icon = "Interface\\AddOns\\MultiBot\\Icons\\formation_shield.blp", cmd = "formation shield" },
+  }
+
+  local function AddFormationButton(frame, info, col, row, cellW, cellH)
+    frame.addButton(info.name,
+                    (col-1)*cellW,
+                    (row-1)*cellH,
+                    info.icon,
+                    MultiBot.tips.format[string.lower(info.name)])
+      .doLeft = function(btn)
+        MultiBot.SelectToGroup(btn.parent.parent, "Format", btn.texture, info.cmd)
+      end
+  end
+
+  -- Main Button --
+  local fBtn = tLeft.addButton("Format", 0, 0,
+                               "Interface\\AddOns\\MultiBot\\Icons\\formation_near.blp",
+                               MultiBot.tips.format.master)
+
+  fBtn.doLeft  = function(btn)  MultiBot.ShowHideSwitch(btn.parent.frames["Format"]) end
+  fBtn.doRight = function()     MultiBot.ActionToGroup("formation")                 end
+
+  -- Internal Frame --
+  local tFormat = tLeft.addFrame("Format", -2, 34)
+  tFormat:Hide()
+
+  -- Grid 1 × N (columns) --
+  local COLS     = 1     -- One column
+  local CELL_W   = 40    -- wide (useless here but we keep the arg.)
+  local CELL_H   = 30    -- high/vertival spacing
+  
+  for idx, data in ipairs(FORMATION_BUTTONS) do
+  local col = 1                                    -- toujours 1
+  local row = idx                                   -- 1,2,3…
+  AddFormationButton(tFormat, data, col, row, CELL_W, CELL_H)
+  end 
 end
+
+-- We call it, when tLeft are ready
+MultiBot.BuildFormationUI(tLeft)
 
 -- BEASTMASTER --
 
@@ -1225,7 +1390,7 @@ tMain.addButton("Actions", 0, 374, "inv_helmet_02", MultiBot.tips.main.action)
 	MultiBot.ActionToTargetOrGroup("reset")
 end
 
--- GAMEMASTER --
+--[[-- GAMEMASTER --
 
 local tButton = tMultiBar.addButton("Masters", 38, 0, "mail_gmicon", MultiBot.tips.game.master).doHide()
 tButton.doRight = function(pButton)
@@ -1370,7 +1535,143 @@ tMasters.addButton("DelSV", 0, 204, "ability_golemstormbolt", MultiBot.tips.game
 
 .doLeft = function()
     StaticPopup_Show("MULTIBOT_DELETE_SV")
+end]]--
+
+--  GAMEMASTER REFORGED --
+function MultiBot.BuildGmUI(tMultiBar)
+  -- 1. Main Button in Multibar
+  local mainBtn = tMultiBar.addButton("Masters", 38, 0, "mail_gmicon",
+                                      MultiBot.tips.game.master)
+  mainBtn:doHide()                                      -- masqué par défaut
+
+  mainBtn.doLeft  = function(b) MultiBot.ShowHideSwitch(b.parent.frames["Masters"]) end
+  mainBtn.doRight = function()  MultiBot.doSlash("/MultiBot", "")                   end
+
+  -- 2. Frame "Masters" : contain the buttons
+  local tMasters = tMultiBar.addFrame("Masters", 36, 38)
+  tMasters:Hide()
+
+  -- 3. Button NecroNet (toggle)
+  local necroBtn = tMasters.addButton("NecroNet", 0, 0,
+                                      "achievement_bg_xkills_avgraveyard",
+                                      MultiBot.tips.game.necronet)
+  necroBtn:setDisable()
+
+  necroBtn.doLeft = function(b)
+    if b.state then          -- ON/OFF
+      MultiBot.necronet.state = false
+      for _, v in pairs(MultiBot.necronet.buttons) do v:Hide() end
+      b:setDisable()
+    else                     -- OFF/ON
+      MultiBot.necronet.cont = 0
+      MultiBot.necronet.area = 0
+      MultiBot.necronet.zone = 0
+      MultiBot.necronet.state = true
+      b:setEnable()
+    end
+  end
+
+  -- 4. Sub-Frame "Portal" (Red / Green / Blue “memory”)
+  local portalBtn = tMasters.addButton("Portal", 0, 34, "inv_box_02",
+                                       MultiBot.tips.game.portal)
+  local tPortal   = tMasters.addFrame("Portal", 30, 36) ; tPortal:Hide()
+
+  portalBtn.doLeft = function() MultiBot.ShowHideSwitch(tPortal) end
+
+  -- Helper for portal
+  local function AddMemoryGem(label, x, icon, tipKey)
+    local gem = tPortal.addButton(label, x, 0, icon,
+                                  MultiBot.doReplace(MultiBot.tips.game.memory,
+                                                      "ABOUT", MultiBot.info.location))
+    gem:setDisable()
+    gem.goMap, gem.goX, gem.goY, gem.goZ = "",0,0,0
+
+    -- Right click to update/delete
+    gem.doRight = function(b)
+      if not b.state then
+        return SendChatMessage(MultiBot.info.itlocation, "SAY")
+      end
+      b.tip = MultiBot.doReplace(MultiBot.tips.game.memory, "ABOUT",
+                                 MultiBot.info.location)
+      b:setDisable()
+    end
+
+    -- Left click to Save or teleport
+    gem.doLeft = function(b)
+      local player = MultiBot.getBot(UnitName("player"))
+      player.waitFor = player.waitFor or ""
+
+      if player.waitFor ~= "" then
+        return SendChatMessage(MultiBot.info.saving, "SAY")
+      end
+
+      if b.state then
+        return SendChatMessage(".go xyz " ..
+                               b.goX .. " " .. b.goY .. " " .. b.goZ ..
+                               " " .. b.goMap, "SAY")
+      end
+
+      player.memory  = b
+      player.waitFor = "COORDS"
+      SendChatMessage(".gps", "SAY")
+    end
+  end
+
+  -- Adding the 3 gems
+  AddMemoryGem("Red",   0,  "inv_jewelcrafting_gem_16",
+               MultiBot.tips.game.memory)
+  AddMemoryGem("Green", 30, "inv_jewelcrafting_gem_13",
+               MultiBot.tips.game.memory)
+  AddMemoryGem("Blue",  60, "inv_jewelcrafting_gem_17",
+               MultiBot.tips.game.memory)
+
+  -- 5. Shortcuts for : Itemus / Iconos / Summon / Appear
+  local UTIL_BUTTONS = {
+    { label="Itemus", y= 68, icon="inv_box_01",        tip=MultiBot.tips.game.itemus,
+      click=function()
+        if MultiBot.ShowHideSwitch(MultiBot.itemus) then
+          MultiBot.itemus.addItems()
+        end
+      end },
+
+    { label="Iconos", y=102, icon="inv_mask_01",       tip=MultiBot.tips.game.iconos,
+      click=function()
+        if MultiBot.ShowHideSwitch(MultiBot.iconos) then
+          MultiBot.iconos.addIcons()
+        end
+      end },
+
+    { label="Summon", y=136, icon="spell_holy_prayerofspirit", tip=MultiBot.tips.game.summon,
+      click=function() MultiBot.doDotWithTarget(".summon") end },
+
+    { label="Appear", y=170, icon="spell_holy_divinespirit",   tip=MultiBot.tips.game.appear,
+      click=function() MultiBot.doDotWithTarget(".appear") end },
+  }
+
+  for _, b in ipairs(UTIL_BUTTONS) do
+    tMasters.addButton(b.label, 0, b.y, b.icon, b.tip).doLeft = b.click
+  end
+
+  -- 6. DelSV Button
+  StaticPopupDialogs["MULTIBOT_DELETE_SV"] = {
+      text         = MultiBot.tips.game.delsvwarning,
+      button1      = YES,
+      button2      = NO,
+      OnAccept     = function()
+          if wipe then wipe(MultiBotGlobalSave)
+          else          for k in pairs(MultiBotGlobalSave) do MultiBotGlobalSave[k]=nil end end
+          ReloadUI()
+      end,
+      timeout      = 0,   whileDead=true, hideOnEscape=true,
+  }
+
+  tMasters.addButton("DelSV", 0, 204, "ability_golemstormbolt",
+                     MultiBot.tips.game.delsv, "ActionButtonTemplate")
+    .doLeft = function() StaticPopup_Show("MULTIBOT_DELETE_SV") end
 end
+
+--  Calling the function
+MultiBot.BuildGmUI(tMultiBar)
 
 -- RIGHT --
 
