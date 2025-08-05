@@ -886,18 +886,30 @@ end
 local tUnits = tMultiBar.addFrame("Units", -40, 72)
 tUnits:Hide()
 
--- UNITS:ALLIANCE --
-
+-- UNITS: ALLIANCE / HORDE  --
 local tAlliance = tUnits.addFrame("Alliance", 0, -34, 32)
 tAlliance:Show()
 
-local tButton = tAlliance.addButton("Alliance", 0, 0, "inv_misc_tournaments_banner_human", MultiBot.tips.units.alliance).doShow()
-tButton.doRight = function(pButton)
-	SendChatMessage(".playerbot bot remove *", "SAY");
-end
-tButton.doLeft = function(pButton)
-	SendChatMessage(".playerbot bot add *", "SAY");
-end
+-- 1.  Determinate player faction
+local faction = UnitFactionGroup("player")      -- "Alliance" ou "Horde"
+
+-- 2.  Associate faction -> Banner
+local FACTION_BANNERS = {
+  Alliance = "inv_misc_tournaments_banner_human",
+  Horde    = "inv_misc_tournaments_banner_orc",
+}
+
+-- 3.  Fallback
+local bannerIcon = FACTION_BANNERS[faction] or "inv_misc_tournaments_banner_human"
+
+-- 4.  Creating button
+local btnAlliance = tAlliance.addButton("FactionBanner", 0, 0, bannerIcon,
+                                        MultiBot.tips.units.alliance)  -- ou units.horde si tu ajoutes le tooltip
+btnAlliance:doShow()
+
+-- Callbacks
+btnAlliance.doRight = function() SendChatMessage(".playerbot bot remove *", "SAY") end
+btnAlliance.doLeft  = function() SendChatMessage(".playerbot bot add *",    "SAY") end
 
 -- UNITS:CONTROL --
 
