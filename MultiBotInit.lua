@@ -1065,7 +1065,7 @@ end
 --  We call the function after tControl creation
 MultiBot.BuildFilterUI(tControl)
 
--- UNITS:ROSTER --
+--[[-- UNITS:ROSTER --
 
 local tButton = tControl.addButton("Roster", 0, 30, "Interface\\AddOns\\MultiBot\\Icons\\roster_players.blp", MultiBot.tips.units.roster)
 tButton.doRight = function(pButton)
@@ -1114,7 +1114,67 @@ tRoster.addButton("Actives", -78, 0, "Interface\\AddOns\\MultiBot\\Icons\\roster
 	pButton.parent.parent.buttons["Invite"].setDisable()
 	pButton.parent.parent.frames["Invite"]:Hide()
 	tButton.doLeft(tButton, "actives")
+end]]--
+
+-- UNITS:ROSTER REFACTORED --
+function MultiBot.BuildRosterUI(tControl)
+
+  -- 1. Main Button
+  local rootBtn = tControl.addButton("Roster", 0, 30,
+                                     "Interface\\AddOns\\MultiBot\\Icons\\roster_players.blp",
+                                     MultiBot.tips.units.roster)
+
+  -- Left Click = toggle sub frame  |  Right Click = select “Players”
+  rootBtn.doLeft  = function(b) MultiBot.ShowHideSwitch(b.parent.frames.Roster) end
+  rootBtn.doRight = function(b)
+    local unitsBtn = MultiBot.frames.MultiBar.buttons.Units
+    MultiBot.Select(b.parent, "Roster",
+                    "Interface\\AddOns\\MultiBot\\Icons\\roster_players.blp")
+    unitsBtn.doLeft(unitsBtn, "players")
+  end
+
+  -- 2. Frame and Config Table
+  local tRoster = tControl.addFrame("Roster", -30, 32) ; tRoster:Hide()
+
+  local ROSTER_MODES = {
+    -- key          icon                   Button        tooltip-key
+    { id="friends", icon="roster_friends", invite=true,  tip="friends" },
+    { id="members", icon="roster_members", invite=true,  tip="members" },
+    { id="players", icon="roster_players", invite=true,  tip="players" },
+    { id="actives", icon="roster_actives", invite=false, tip="actives" },
+  }
+
+  -- 3. Helper bouton Roster
+  local function AddRosterButton(cfg, idx)
+    local x = -26 * (idx-1)
+    local tex = "Interface\\AddOns\\MultiBot\\Icons\\" .. cfg.icon .. ".blp"
+
+    local btn = tRoster.addButton(cfg.id:gsub("^%l", string.upper), x, 0,
+                                  tex, MultiBot.tips.units[cfg.tip])
+
+    btn.doLeft = function(b)
+      local unitsBtn = MultiBot.frames.MultiBar.buttons.Units
+      MultiBot.Select(b.parent.parent, "Roster", b.texture)
+
+      if cfg.invite then
+        b.parent.parent.buttons.Invite.setEnable()
+      else
+        b.parent.parent.buttons.Invite.setDisable()
+      end
+      b.parent.parent.frames.Invite:Hide()
+
+      unitsBtn.doLeft(unitsBtn, cfg.id)
+    end
+  end
+
+  -- 4. Loop
+  for i, cfg in ipairs(ROSTER_MODES) do
+    AddRosterButton(cfg, i)
+  end
 end
+
+--  Function call
+MultiBot.BuildRosterUI(tControl)
 
 -- UNITS:BROWSE --
 
