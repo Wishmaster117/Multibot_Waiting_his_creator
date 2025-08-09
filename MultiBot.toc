@@ -3,10 +3,13 @@
 ## Title: MultiBot
 ## Notes: User Interface for Playerbot
 ## Author: Nico Löbbert
-## SavedVariablesPerCharacter: MultiBotSave
+## SavedVariablesPerCharacter: MultiBotSave, MultiBotDB
 ## SavedVariables: MultiBotGlobalSave
 
 MultiBot.lua
+MultiBotConfig.lua
+MultiBotOptions.lua
+MultiBotThrottle.lua
 
 MultiBotLanguage-deDE.lua
 MultiBotLanguage-enGB.lua
