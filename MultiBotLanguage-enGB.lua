@@ -399,14 +399,14 @@ MultiBot.tips.mode.grind =
 
 MultiBot.tips.stallow.stay =
 "Stay/Follow\n|cffffffff"..
-"Change to Stay Command\n"..
+"Change to Stay command\n"..
 "Cancels Passive Mode.\n"..
 "|cffff0000Left-click to activate|r\n"..
 "|cff999999(Executed by: Raid, Party)|r";
 
 MultiBot.tips.stallow.follow =
 "Stay/Follow\n|cffffffff"..
-"Change to Follow Command\n"..
+"Change to Follow command\n"..
 "Cancels Passive Mode\n"..
 "|cffff0000Left-click to activate|r\n"..
 "|cff999999(Executed by: Raid, Party)|r";
