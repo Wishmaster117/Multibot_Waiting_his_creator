@@ -71,16 +71,16 @@ MultiBot.info.target =
 "I don't have a target.";
 
 MultiBot.info.classes =
-"Classes don't match.";
+"The Classes doesn't match.";
 
 MultiBot.info.levels =
 "Levels don't match.";
 
 MultiBot.info.spell =
-"I couldn't identify that spell.";
+"I couldn't identify the spell.";
 
 MultiBot.info.macro =
-"I already have the maximum of private macros.";
+"I already have the maximum of # private macros.";
 
 MultiBot.info.neither =
 "I neither have a target, nor am I in a Raid or Party.";
@@ -92,7 +92,7 @@ MultiBot.info.inviting =
 "I'm inviting NAME to the Group.";
 
 MultiBot.info.combat =
-"I'm querying NAME for their combat directives...";
+"Asked NAME for Combat Strategies.";
 
 MultiBot.info.teleport =
 "will teleport you to 'MAP - ZONE'";
@@ -107,19 +107,13 @@ MultiBot.info.spellbook =
 "NAME's Spellbook";
 
 MultiBot.info.player =
-"I couldn't auto-initialise NAME from the Playerbot Roster.";
+"I won't Auto-Initialize 'NAME' from the Playerbot-Roster.";
 
 MultiBot.info.member =
-"I couldn't auto-initialise NAME from the Guild Roster.";
-
-MultiBot.info.players =
-"I couldn't auto-initialise anyone from the Playerbot Roster.";
-
-MultiBot.info.members =
-"I couldn't auto-initialise anyone from the Guild Roster.";
+"I won't Auto-Initialize 'NAME' from the Guild-Roster.";
 
 MultiBot.info.wait =
-"Bot invitation is in progress. Please wait.";
+"I've already invited members. Please wait until I'm done.";
 
 MultiBot.info.starting =
 "Inviting Bots to group...";
@@ -140,7 +134,7 @@ MultiBot.info.action =
 "I need to select an action.";
 
 MultiBot.info.combination =
-"I couldn't find any items that match this filter combination.";
+"There are no Items for this Combination.";
 
 --MultiBot.info.language =
 --"I need to activate the Language-Selector first.";
@@ -285,6 +279,7 @@ MultiBot.tips.move.stats =
 "Right-click to drag and move Auto-Stats";
 
 MultiBot.tips.move.itemus =
+
 "Right-click to drag and move the Itemus window";
 
 MultiBot.tips.move.iconos =
@@ -305,6 +300,7 @@ MultiBot.tips.move.raidus =
 -- TANKER --
 
 MultiBot.tips.tanker.master =
+
 "Tank Main Menu\n|cffffffff"..
 "Control how Tanks attack.\n"..
 "|cffff0000Left-click to activate Tank Attack|r\n"..
@@ -879,6 +875,38 @@ MultiBot.tips.units.alliance =
 "|cffff0000Right-click to log out all PlayerBots|r\n"..
 "|cff999999(Executed by: System)|r";
 
+-- SLIDERS INTERFACE --
+
+MultiBot.tips.sliders.throttleinstalled =
+"MultiBot throttle installed";
+
+MultiBot.tips.sliders.frametitle =
+"MultiBot — Options";
+
+MultiBot.tips.sliders.actionsinter =
+"Automatic action intervals";
+
+MultiBot.tips.sliders.statsinter =
+"Stats ping interval";
+
+MultiBot.tips.sliders.talentsinter =
+"Auto talents interval";
+
+MultiBot.tips.sliders.invitsinter =
+"Invitation loop interval";
+
+MultiBot.tips.sliders.sortinter =
+"Sorting/refresh interval";
+
+MultiBot.tips.sliders.messpersec =
+"Messages per second";
+
+MultiBot.tips.sliders.maxburst =
+"Maximum burst";
+
+MultiBot.tips.sliders.rstbutn =
+"Reset";
+
 -- MAIN --
 
 MultiBot.tips.main.master =
@@ -888,6 +916,14 @@ MultiBot.tips.main.master =
 "|cff999999(Executed by: System)|r\n\n"..
 "|cffff0000Right-click to drag and move MultiBot windows|r\n"..
 "|cff999999(Executed by: System)|r";
+
+MultiBot.tips.main.options =
+"Options-Switch\n|cffffffff"..
+"Opens the MultiBot settings panel with sliders for action intervals.\n"..
+"(Stats / Talents / Invite / Sort) and chat throttling (Messages per second / Burst).\n"..
+"Settings are saved per character.|r\n\n"..
+"|cffff0000Left-Click to open or close the options panel|r\n"..
+"|cff999999(Execution-Order: Interface)|r";
 
 MultiBot.tips.main.coords =
 "Reset Window Locations\n|cffffffff"..
