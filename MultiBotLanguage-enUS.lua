@@ -1994,7 +1994,7 @@ MultiBot.tips.mage.dps.master =
 MultiBot.tips.mage.dps.dpsAssist =
 "DPS Assist|cffffffff\n"..
 "Toggles DPS Assist role.\n"..
-"DPS AoE, DPS Assist and Tank Assist are mutually exclusive.\n\n"..
+"DPS AoE, DPS Assist, and Tank Assist are mutually exclusive.\n"..
 "Only one may be active at a time.|r\n\n"..
 "|cffff0000Left-click to toggle|r\n"..
 "|cf9999999(Executed by: Bot)|r";
@@ -2002,7 +2002,7 @@ MultiBot.tips.mage.dps.dpsAssist =
 MultiBot.tips.mage.dps.dpsAoe =
 "DPS AoE|cffffffff\n"..
 "Toggles DPS AoE role.\n"..
-"DPS AoE, DPS Assist and Tank Assist are mutually exclusive.\n\n"..
+"DPS AoE, DPS Assist, and Tank Assist are mutually exclusive.\n"..
 "Only one may be active at a time.|r\n\n"..
 "|cffff0000Left-click to toggle|r\n"..
 "|cf9999999(Executed by: Bot)|r";
@@ -2010,7 +2010,7 @@ MultiBot.tips.mage.dps.dpsAoe =
 MultiBot.tips.mage.tankAssist =
 "Tank-Assist|cffffffff\n"..
 "Toggles Tank Assist role.\n"..
-"DPS AoE, DPS Assist and Tank Assist are mutually exclusive.\n\n"..
+"DPS AoE, DPS Assist, and Tank Assist are mutually exclusive.\n"..
 "Only one may be active at a time.|r\n\n"..
 "|cffff0000Left-click to toggle|r\n"..
 "|cf9999999(Executed by: Bot)|r";
@@ -2173,14 +2173,14 @@ MultiBot.tips.paladin.dps.master =
 
 MultiBot.tips.paladin.dps.dpsAssist =
 "DPS Assist|cffffffff\n"..
-"DPS AoE, DPS Assist, and Tank Assist are mutually exclusive.\n"
+"DPS AoE, DPS Assist, and Tank Assist are mutually exclusive.\n"..
 "Only one may be active at a time.|r\n\n"..
 "|cffff0000Left-click to toggle|r\n"..
 "|cf9999999(Executed by: Bot)|r";
 
 MultiBot.tips.paladin.dps.dpsAoe =
 "DPS AoE|cffffffff\n"..
-"DPS AoE, DPS Assist, and Tank Assist are mutually exclusive.\n"
+"DPS AoE, DPS Assist, and Tank Assist are mutually exclusive.\n"..
 "Only one may be active at a time.|r\n\n"..
 "|cffff0000Left-click to toggle|r\n"..
 "|cf9999999(Executed by: Bot)|r";
@@ -2201,7 +2201,7 @@ MultiBot.tips.paladin.dps.offheal =
 
 MultiBot.tips.paladin.tankAssist =
 "Tank Assist|cffffffff\n"..
-"DPS AoE, DPS Assist, and Tank Assist are mutually exclusive.\n"
+"DPS AoE, DPS Assist, and Tank Assist are mutually exclusive.\n"..
 "Only one may be active at a time.|r\n\n"..
 "|cffff0000Left-click to toggle|r\n"..
 "|cf9999999(Executed by: Bot)|r";
