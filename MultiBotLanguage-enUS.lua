@@ -2187,7 +2187,7 @@ MultiBot.tips.paladin.dps.dpsAoe =
 
 MultiBot.tips.paladin.dps.dps =
 "DPS|cffffffff\n"..
-"Tank, DPS, and Healer are mutually exclusive.\n"
+"Tank, DPS, and Healer are mutually exclusive.\n"..
 "Only one may be active at a time.|r\n\n"..
 "|cffff0000Left-click to toggle|r\n"..
 "|cf9999999(Executed by: Bot)|r";
@@ -2208,7 +2208,7 @@ MultiBot.tips.paladin.tankAssist =
 
 MultiBot.tips.paladin.tank =
 "Tank|cffffffff\n"..
-"Tank, DPS, and Healer are mutually exclusive.\n"
+"Tank, DPS, and Healer are mutually exclusive.\n"..
 "Only one may be active at a time.|r\n\n"..
 "|cffff0000Left-click to toggle|r\n"..
 "|cf9999999(Executed by: Bot)|r";
