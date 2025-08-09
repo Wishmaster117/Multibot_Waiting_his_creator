@@ -928,17 +928,49 @@ MultiBot.tips.units.inviteRaid40 =
 
 -- UNITS:ALL --
 
-MultiBot.tips.units.alliance = 
-"Alliance\n|cffffffff"..
-"Avec ce bouton, vous pouvez mettre en ligne ou hors ligne tous les membres de votre groupe.\n"..
-"Il se peut que MultiBot ne réagisse pas assez rapidement et n'affiche pas toutes les Botbars.\n\n"..
-"|cffff0000Clic gauche pour mettre en ligne tous les membres du groupe|r\n"..
-"|cff999999(Ordre d'exécution : Système)|r\n\n"..
-"|cffff0000Clic droit pour mettre hors ligne tous les membres du groupe|r\n"..
-"|cff999999(Ordre d'exécution : Système)|r";
+MultiBot.tips.units.alliance =
+"Connexion/Déconnexion de tous les PlayerBots\n|cffffffff"..
+"Connecte ou déconnecte tous les PlayerBots auxquels vous avez accès.\n"..
+"Cette fonction peut prendre du temps pour remplir les barres de boutons de chaque PlayerBot,\n"..
+"en fonction du nombre total de PlayerBots.\n\n"..
+"|cffff0000Clic gauche pour connecter tous les PlayerBots|r\n"..
+"|cff999999(Exécuté par : Système)|r\n\n"..
+"|cffff0000Clic droit pour déconnecter tous les PlayerBots|r\n"..
+"|cff999999(Exécuté par : Système)|r";
 
+-- SLIDERS INTERFACE --
 
--- PRINCIPAL --
+MultiBot.tips.sliders.throttleinstalled =
+"Limitation MultiBot installée";
+
+MultiBot.tips.sliders.frametitle =
+"MultiBot — Options";
+
+MultiBot.tips.sliders.actionsinter =
+"Intervalles des actions automatiques";
+
+MultiBot.tips.sliders.statsinter =
+"Intervalle ping des stats";
+
+MultiBot.tips.sliders.talentsinter =
+"Intervalle d’attribution auto des talents";
+
+MultiBot.tips.sliders.invitsinter =
+"Intervalle de la boucle d’invitations";
+
+MultiBot.tips.sliders.sortinter =
+"Intervalle de tri/rafraîchissement";
+
+MultiBot.tips.sliders.messpersec =
+"Messages par seconde";
+
+MultiBot.tips.sliders.maxburst =
+"Rafale maximale";
+
+MultiBot.tips.sliders.rstbutn =
+"Réinitialiser";
+
+-- MAIN --
 
 MultiBot.tips.main.master =
 "Contrôle Principal\n|cffffffff"..
@@ -948,6 +980,14 @@ MultiBot.tips.main.master =
 "|cff999999(Ordre d'exécution : Système)|r\n\n"..
 "|cffff0000Clic droit pour faire glisser et déplacer MultiBot|r\n"..
 "|cff999999(Ordre d'exécution : Système)|r";
+
+MultiBot.tips.main.options =
+"Options-Switch\n|cffffffff"..
+"Ouvre le panneau des paramètres MultiBot avec des curseurs pour les intervalles d’actions.\n"..
+"(Stats / Talents / Invitation / Tri) et la limitation du chat (Messages par seconde / Rafale).\n"..
+"Les paramètres sont enregistrés par personnage.|r\n\n"..
+"|cffff0000Clic gauche pour ouvrir ou fermer le panneau d’options|r\n"..
+"|cff999999(Ordre d’exécution : Interface)|r";
 
 MultiBot.tips.main.coords =
 "Réinitialiser les Coordonnées\n|cffffffff"..

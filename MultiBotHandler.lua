@@ -350,12 +350,20 @@ MultiBot:SetScript("OnEvent", function()
 	-- CHAT:SYSTEM --
 	
 	if(event == "CHAT_MSG_SYSTEM") then
-		if(MultiBot.isInside(arg1, "Accountlevel", "account level", "niveau de compte", "等级")) then
+		--[[if(MultiBot.isInside(arg1, "Accountlevel", "account level", "niveau de compte", "等级")) then
 			local tLevel = tonumber(MultiBot.doSplit(arg1, ": ")[2])
 			if(tLevel ~= nil) then MultiBot.GM = tLevel > 1 end
 			MultiBot.RaidPool("player")
-		end
-		
+		end]]--
+
+		-- Détection générique du niveau de compte (toutes langues prises en charge via patrons)
+        do
+          local msg = arg1
+          if MultiBot.GM_DetectFromSystem and type(msg) == "string" then
+            MultiBot.GM_DetectFromSystem(msg)
+          end
+        end
+
 		if(MultiBot.isInside(arg1, "Possible strategies")) then
 			local tStrategies = MultiBot.doSplit(arg1, ", ")
 			SendChatMessage("=== STRATEGIES ===", "SAY")
@@ -1356,3 +1364,10 @@ SlashCmdList["MBCHECK"] = function()
     tostring(SendChatMessage)
   ))
 end]]--
+
+SLASH_MBFAKEGM1 = "/mbfakegm"
+SlashCmdList["MBFAKEGM"] = function(msg)
+  local n = tonumber(msg or "") or 0
+  MultiBot.GM_DetectFromSystem(("Account level: %d"):format(n))
+  DEFAULT_CHAT_FRAME:AddMessage(("GM now: %s (lvl=%d, threshold=%d)"):format(tostring(MultiBot.GM), n, MultiBot.GM_THRESHOLD))
+end

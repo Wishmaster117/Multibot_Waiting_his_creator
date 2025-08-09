@@ -921,14 +921,48 @@ MultiBot.tips.units.inviteRaid40 =
 
   -- UNITS:ALL --
 
-MultiBot.tips.units.alliance = 
-"Alliance\n|cffffffff"..
-"Con este botón puedes poner en línea o desconectar a todos los miembros de tu grupo.\n"..
-"Tal vez MultiBot no pueda reaccionar lo suficientemente rápido y no muestre todas las barras de bots.\n\n"..
-"|cffff0000Clic izquierdo para poner en línea a todos los miembros del grupo|r\n"..
-"|cff999999(Orden de ejecución: Sistema)|r\n\n"..
-"|cffff0000Clic derecho para desconectar a todos los miembros del grupo|r\n"..
-"|cff999999(Orden de ejecución: Sistema)|r";
+MultiBot.tips.units.alliance =
+"Iniciar/Cerrar sesión de todos los PlayerBots\n|cffffffff"..
+"Inicia o cierra la sesión de todos los PlayerBots a los que tengas acceso.\n"..
+"Esta función puede tardar en llenar las barras de botones de cada PlayerBot,\n"..
+"dependiendo del número total de PlayerBots.\n\n"..
+"|cffff0000Clic izquierdo para iniciar sesión en todos los PlayerBots|r\n"..
+"|cff999999(Ejecutado por: Sistema)|r\n\n"..
+"|cffff0000Clic derecho para cerrar sesión en todos los PlayerBots|r\n"..
+"|cff999999(Ejecutado por: Sistema)|r";
+
+
+-- SLIDERS INTERFACE --
+
+MultiBot.tips.sliders.throttleinstalled =
+"Limitador de MultiBot instalado";
+
+MultiBot.tips.sliders.frametitle =
+"MultiBot — Opciones";
+
+MultiBot.tips.sliders.actionsinter =
+"Intervalos de acciones automáticas";
+
+MultiBot.tips.sliders.statsinter =
+"Intervalo de ping de estadísticas";
+
+MultiBot.tips.sliders.talentsinter =
+"Intervalo de talentos automáticos";
+
+MultiBot.tips.sliders.invitsinter =
+"Intervalo del bucle de invitaciones";
+
+MultiBot.tips.sliders.sortinter =
+"Intervalo de ordenación/actualización";
+
+MultiBot.tips.sliders.messpersec =
+"Mensajes por segundo";
+
+MultiBot.tips.sliders.maxburst =
+"Ráfaga máxima";
+
+MultiBot.tips.sliders.rstbutn =
+"Restablecer";
 
 -- MAIN --
 
@@ -940,6 +974,14 @@ MultiBot.tips.main.master =
 "|cff999999(Orden de ejecución: Sistema)|r\n\n"..
 "|cffff0000Clic derecho para mover MultiBot|r\n"..
 "|cff999999(Orden de ejecución: Sistema)|r";
+
+MultiBot.tips.main.options =
+"Interruptor de opciones\n|cffffffff"..
+"Abre el panel de configuración de MultiBot con controles deslizantes para los intervalos de acciones.\n"..
+"(Estadísticas / Talentos / Invitación / Ordenar) y la limitación del chat (Mensajes por segundo / Ráfaga).\n"..
+"La configuración se guarda por personaje.|r\n\n"..
+"|cffff0000Clic izquierdo para abrir o cerrar el panel de opciones|r\n"..
+"|cff999999(Orden de ejecución: Interfaz)|r";
 
 MultiBot.tips.main.coords =
 "Reset-Coords\n|cffffffff"..  -- Línea que se mantiene en inglés
