@@ -25,3 +25,9 @@ How To Install:
 2 - rename "Multibot_Waiting_his_creator-main" to "Multibot"
 
 3 - Put the MultiBot folder in you game AddOns folder like \Interface\AddOns\Multibot
+
+---
+
+Screens:
+
+<img width="855" height="716" alt="main" src="https://github.com/user-attachments/assets/5d5f08ab-58a6-4d59-a911-d40470913514" />
