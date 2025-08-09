@@ -1,6 +1,6 @@
 if(GetLocale() == "enGB") then
 MultiBot.data.classes.input = {
-[1] = "DeathKnight",
+[1] = "Death Knight",
 [2] = "Druid",
 [3] = "Hunter",
 [4] = "Mage",
@@ -11,6 +11,8 @@ MultiBot.data.classes.input = {
 [9] = "Warlock",
 [10] = "Warrior"
 }
+
+-- INFO --
 
 -- GLYPHS
 MultiBot.info.glyphssocketnotunlocked =
@@ -23,7 +25,7 @@ MultiBot.info.glyphsunknowglyph =
 "Unable to identify this glyph.";
 
 MultiBot.info.glyphsglyphtype =
-"Glyphe type ";
+"Glyph type ";
 
 MultiBot.info.glyphsglyphsocket =
 "wrong socket.";
@@ -40,7 +42,8 @@ MultiBot.info.glyphsglyphsfor =
 MultiBot.info.talentscustomtalentsfor =
 "Custom Talents for";
 
--- Hunters
+-- Hunter
+
 MultiBot.info.hunterpeteditentervalue =
 "Enter value";
 
@@ -59,39 +62,38 @@ MultiBot.info.hunterpetentersomething =
 MultiBot.info.hunterpetrandomfamily =
 "Random by Family";
 
--- end Hunters
+-- end Hunter
 
--- INFO --
 
 MultiBot.info.command =
 "Command not found.";
 
 MultiBot.info.target =
-"I dont have a Target.";
+"I don't have a target.";
 
 MultiBot.info.classes =
-"The Classes do not match.";
+"The Classes doesn't match.";
 
 MultiBot.info.levels =
-"The Levels do not match.";
+"Levels don't match.";
 
 MultiBot.info.spell =
-"I couldnt identify the Spell.";
+"I couldn't identify the spell.";
 
 MultiBot.info.macro =
-"I already have the maximum # of private Macros.";
+"I have already the maximum # of private macros.";
 
 MultiBot.info.neither =
-"I neither have a Target nor am I in a Raid or Party.";
+"I neither have a target, nor am I in a Raid or Party.";
 
 MultiBot.info.group =
-"I'm neither in a Raid nor in a Party.";
+"I neither am in a Raid nor in a Party.";
 
 MultiBot.info.inviting =
 "Inviting NAME to the Group.";
 
 MultiBot.info.combat =
-"Asked NAME for Combat-Strategies.";
+"Asked NAME for Combat Strategies.";
 
 MultiBot.info.teleport =
 "will teleport you to 'MAP - ZONE'";
@@ -106,49 +108,52 @@ MultiBot.info.spellbook =
 "Spellbook of NAME";
 
 MultiBot.info.player =
-"I wont Auto-Initialize 'NAME' from the Playerbot-Roster.";
+"I won't Auto-Initialize 'NAME' from the Playerbot-Roster.";
 
 MultiBot.info.member =
-"I wont Auto-Initialize 'NAME' from the Guild-Roster.";
+"I won't Auto-Initialize 'NAME' from the Guild-Roster.";
 
 MultiBot.info.players =
-"I wont Auto-Initialize anyone from the Playerbot-Roster.";
+"I won't Auto-Initialize anyone from the Playerbot-Roster.";
 
 MultiBot.info.members =
-"I wont Auto-Initialize anyone from the Guild-Roster.";
+"I won't Auto-Initialize anyone from the Guild-Roster.";
 
 MultiBot.info.wait =
-"I already invited Members, please wait until I am done.";
+"I've already invited members. Please wait until I'm done.";
 
 MultiBot.info.starting =
 "Starting to invite Members.";
 
 MultiBot.info.stats =
-"Auto-Stats is for Parties, not for a Raids.";
+"Auto-Stats is for Parties, not Raids.";
 
 MultiBot.info.location =
-"has no Location stored inside.";
+"has no Location stored within.";
 
 MultiBot.info.itlocation =
-"It has no Location stored inside.";
+"It has no Location stored within.";
 
 MultiBot.info.saving =
-"I am still in the process of saving my position.";
+"I'm still in the process of saving my position.";
 
 MultiBot.info.action =
-"I need to select a Action.";
+"I need to select an action.";
 
-MultiBot.info.combination = 
+MultiBot.info.combination =
 "There are no Items for this Combination.";
 
 --MultiBot.info.language =
 --"I need to activate the Language-Selector first.";
 
 MultiBot.info.rights =
-"I have not the GameMaster-Rights.";
+"I have no GameMaster privileges.";
 
 MultiBot.info.reward =
-"Select the Rewards";
+"Select Rewards";
+
+MultiBot.info.nothing =
+"Nothing is saved in this Slot.";
 
 MultiBot.info.shorts.bag =
 "Bag";
@@ -165,15 +170,15 @@ MultiBot.info.shorts.mp =
 -- INFO:TALENT --
 
 MultiBot.info.talent.Level =
-"His Level is lower than 10.";
+"Level is lower than 10.";
 
 MultiBot.info.talent.OutOfRange =
-"The Bot is out of Range.";
+"Bot is out of Range.";
 
-MultiBot.info.talent.Apply = 
+MultiBot.info.talent.Apply =
 "Apply";
 
-MultiBot.info.talent.Copy = 
+MultiBot.info.talent.Copy =
 "Copy";
 
 MultiBot.info.talent.Title =
@@ -275,73 +280,71 @@ MultiBot.info.talent.Warrior3 =
 -- MOVE --
 
 MultiBot.tips.move.inventory =
-"Right-Click to drag and move the Inventory";
+"Right-click to drag and move the Inventory";
 
 MultiBot.tips.move.stats =
-"Right-Click to drag and move Auto-Stats";
+"Right-click to drag and move Auto-Stats";
 
 MultiBot.tips.move.itemus =
-"Right-Click to drag and move Itemus";
+"Right-click to drag and move Itemus";
 
-MultiBot.tips.move.iconos = 
-"Right-Click to drag and move Iconos";
+MultiBot.tips.move.iconos =
+"Right-click to drag and move Iconos";
 
-MultiBot.tips.move.spellbook = 
-"Right-Click to drag and move the Spellbook";
+MultiBot.tips.move.spellbook =
+"Right-click to drag and move the Spellbook";
 
 MultiBot.tips.move.reward =
-"Right-Click to drag and move the Reward-Selector";
+"Right-click to drag and move the Reward-Selector";
 
 MultiBot.tips.move.talent =
-"Right-Click to drag and move the Talents";
+"Right-click to drag and move the Talents";
 
 MultiBot.tips.move.raidus =
-"Right-Click to drag and move the Raidus";
+"Right-click to drag and move the Raidus";
 
 -- TANKER --
 
-MultiBot.tips.tanker.master = 
+MultiBot.tips.tanker.master =
 "Tank-Attack\n|cffffffff"..
-"With this Button the Tanks will attack your target.\n"..
-"The Execution-Order shows the Receiver for Commands.|r\n\n"..
-"|cffff0000Left-Click to execute Tank-Attack|r\n"..
-"|cff999999(Execution-Order: Raid, Party)|r";
+"Control how Tanks attack.\n"..
+"|cffff0000Left-click to activate Tank-Attack|r\n"..
+"|cff999999(Executed by: Raid, Party)|r";
 
 -- ATTACK --
 
-MultiBot.tips.attack.master = 
+MultiBot.tips.attack.master =
 "Attack-Control\n|cffffffff"..
-"With this Control you can give the Command to attack.\n"..
-"Right-Click the Options to define a new default Action.\n"..
-"The Execution-Order shows the Receiver for Commands.|r\n\n"..
-"|cffff0000Left-Click to execute the default Action|r\n"..
-"|cff999999(Execution-Order: Raid, Party)|r\n\n"..
-"|cffff0000Right-Click to show or hide the Options|r\n"..
-"|cff999999(Execution-Order: System)|r";
+"Various attack commands\n"..
+"Right-click the Options to set a new default action.\n"..
+"|cffff0000Left-click to activate the default action|r\n"..
+"|cff999999(Executed by: Raid, Party)|r\n\n"..
+"|cffff0000Right-click to show or hide the Options|r\n"..
+"|cff999999(Executed by: System)|r";
 
-MultiBot.tips.attack.attack = 
+MultiBot.tips.attack.attack =
 "Attack\n|cffffffff"..
-"With this Command the whole Raid or Party will attack your target.|r\n\n"..
-"|cffff0000Left-Click to execute Attack|r\n"..
-"|cff999999(Execution-Order: Raid, Party)|r\n\n"..
-"|cffff0000Right-Click to define as default Action|r\n"..
-"|cff999999(Execution-Order: System)|r";
+"The entire Party or Raid attacks your Target.|r\n\n"..
+"|cffff0000Left-click to activate Attack|r\n"..
+"|cff999999(Executed by: Raid, Party)|r\n\n"..
+"|cffff0000Right-click to set as default action|r\n"..
+"|cff999999(Executed by: System)|r";
 
-MultiBot.tips.attack.ranged = 
+MultiBot.tips.attack.ranged =
 "Ranged-Attack\n|cffffffff"..
-"With this Command the Ranged-Fighters will attack your target.|r\n\n"..
-"|cffff0000Left-Click to execute Ranged-Attack|r\n"..
-"|cff999999(Execution-Order: Raid, Party)|r\n\n"..
-"|cffff0000Right-Click to define as default Action|r\n"..
-"|cff999999(Execution-Order: System)|r";
+"All ranged attackers attack your Target.|r\n\n"..
+"|cffff0000Left-click to activate Ranged-Attack|r\n"..
+"|cff999999(Executed by: Raid, Party)|r\n\n"..
+"|cffff0000Right-click to set as default action|r\n"..
+"|cff999999(Executed by: System)|r";
 
-MultiBot.tips.attack.melee = 
+MultiBot.tips.attack.melee =
 "Melee-Attack\n|cffffffff"..
-"With this Command the Melee-Fighters will attack your target.|r\n\n"..
-"|cffff0000Left-Click to execute Melee-Attack|r\n"..
-"|cff999999(Execution-Order: Raid, Party)|r\n\n"..
-"|cffff0000Right-Click to define as default Action|r\n"..
-"|cff999999(Execution-Order: System)|r";
+"All melee attackers attack your Target.|r\n\n"..
+"|cffff0000Left-click to activate Melee-Attack|r\n"..
+"|cff999999(Executed by: Raid, Party)|r\n\n"..
+"|cffff0000Right-click to set as default action|r\n"..
+"|cff999999(Executed by: System)|r";
 
 MultiBot.tips.attack.healer = 
 "Healer-Attack\n|cffffffff"..
@@ -928,6 +931,38 @@ MultiBot.tips.units.alliance =
 "|cffff0000Right-Click to bring all Group-Members offline|r\n"..
 "|cff999999(Execution-Order: System)|r";
 
+-- SLIDERS INTERFACE --
+
+MultiBot.tips.sliders.throttleinstalled =
+"MultiBot throttle installed";
+
+MultiBot.tips.sliders.frametitle =
+"MultiBot — Options";
+
+MultiBot.tips.sliders.actionsinter =
+"Automatic action intervals";
+
+MultiBot.tips.sliders.statsinter =
+"Stats ping interval";
+
+MultiBot.tips.sliders.talentsinter =
+"Auto talents interval";
+
+MultiBot.tips.sliders.invitsinter =
+"Invitation loop interval";
+
+MultiBot.tips.sliders.sortinter =
+"Sorting/refresh interval";
+
+MultiBot.tips.sliders.messpersec =
+"Messages per second";
+
+MultiBot.tips.sliders.maxburst =
+"Maximum burst";
+
+MultiBot.tips.sliders.rstbutn =
+"Reset";
+
 -- MAIN --
 
 MultiBot.tips.main.master =
@@ -938,6 +973,14 @@ MultiBot.tips.main.master =
 "|cff999999(Execution-Order: System)|r\n\n"..
 "|cffff0000Right-Click to drag and move MultiBot|r\n"..
 "|cff999999(Execution-Order: System)|r";
+
+MultiBot.tips.main.options =
+"Options-Switch\n|cffffffff"..
+"Opens the MultiBot settings panel with sliders for action intervals.\n"..
+"(Stats / Talents / Invite / Sort) and chat throttling (Messages per second / Burst).\n"..
+"Settings are saved per character.|r\n\n"..
+"|cffff0000Left-Click to open or close the options panel|r\n"..
+"|cff999999(Execution-Order: Interface)|r";
 
 MultiBot.tips.main.coords =
 "Reset-Coords\n|cffffffff"..

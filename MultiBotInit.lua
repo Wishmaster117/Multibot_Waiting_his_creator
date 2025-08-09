@@ -98,9 +98,7 @@ tButton.doLeft = function(pButton)
 	if(MultiBot.isTarget()) then MultiBot.ActionToGroup("@tank do attack my target") end
 end]]--
 
--- --------------------------------------------------------------------
 --  UI ATTACK REFORGED --
--- --------------------------------------------------------------------
 function MultiBot.BuildAttackUI(tLeft)
 
   -- 1. Table
@@ -1517,6 +1515,38 @@ end
 tMain.addButton("Actions", 0, 374, "inv_helmet_02", MultiBot.tips.main.action)
 .doLeft = function(pButton)
 	MultiBot.ActionToTargetOrGroup("reset")
+end
+
+-- [AJOUT] Bouton Options (ouvre/ferme le panneau des sliders)
+local tBtnOptions = tMain.addButton("Options", 0, 404, "inv_misc_gear_02", MultiBot.tips.main.options)
+tBtnOptions._active = false
+
+-- Grisé par défaut (alpha 0.4 + désaturation)
+do
+  local f = tBtnOptions.frame or tBtnOptions
+  if f and f.SetAlpha then f:SetAlpha(0.4) end
+  if f and f.GetRegions then
+    local tex = f:GetRegions()
+    if tex and tex.SetDesaturated then tex:SetDesaturated(true) end
+  end
+end
+
+tBtnOptions.doLeft = function(pButton)
+  -- Toggle panneau d'options
+  local opened = false
+  if MultiBot.ToggleOptionsPanel then
+    opened = MultiBot.ToggleOptionsPanel()
+  end
+
+  pButton._active = opened
+
+  -- Visuel : dégrise si ouvert, re-grise si fermé
+  local f = pButton.frame or pButton
+  if f and f.SetAlpha then f:SetAlpha(opened and 1.0 or 0.4) end
+  if f and f.GetRegions then
+    local tex = f:GetRegions()
+    if tex and tex.SetDesaturated then tex:SetDesaturated(not opened) end
+  end
 end
 
 --[[-- GAMEMASTER --

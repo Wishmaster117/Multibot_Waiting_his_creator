@@ -1076,10 +1076,43 @@ MultiBot.tips.units.alliance =
 "|cffff0000Right-Click to bring all Group-Members offline|r\n"..
 "|cff999999(Execution-Order: System)|r";
 
--- MAIN --
+-- SLIDERS INTERFACE --
+MultiBot.tips.sliders = {}
 
+MultiBot.tips.sliders.throttleinstalled =
+"MultiBot throttle installed";
+
+MultiBot.tips.sliders.frametitle =
+"MultiBot — Options";
+
+MultiBot.tips.sliders.actionsinter =
+"Automatic action intervals";
+
+MultiBot.tips.sliders.statsinter =
+"Stats ping interval";
+
+MultiBot.tips.sliders.talentsinter =
+"Auto talents interval";
+
+MultiBot.tips.sliders.invitsinter =
+"Invitation loop interval";
+
+MultiBot.tips.sliders.sortinter =
+"Sorting/refresh interval";
+
+MultiBot.tips.sliders.messpersec =
+"Messages per second";
+
+MultiBot.tips.sliders.maxburst =
+"Maximum burst";
+
+MultiBot.tips.sliders.rstbutn =
+"Reset";
+
+-- MAIN --
 MultiBot.tips.main = {}
 MultiBot.tips.main.lang = {}
+
 MultiBot.tips.main.master =
 "Main-Control\n|cffffffff"..
 "In this Control you will find the Auto-Switches and Reset-Commands.\n"..
@@ -1088,6 +1121,14 @@ MultiBot.tips.main.master =
 "|cff999999(Execution-Order: System)|r\n\n"..
 "|cffff0000Right-Click to drag and move MultiBot|r\n"..
 "|cff999999(Execution-Order: System)|r";
+
+MultiBot.tips.main.options =
+"Options-Switch\n|cffffffff"..
+"Opens the MultiBot settings panel with sliders for action intervals.\n"..
+"(Stats / Talents / Invite / Sort) and chat throttling (Messages per second / Burst).\n"..
+"Settings are saved per character.|r\n\n"..
+"|cffff0000Left-Click to open or close the options panel|r\n"..
+"|cff999999(Execution-Order: Interface)|r";
 
 MultiBot.tips.main.coords =
 "Reset-Coords\n|cffffffff"..
@@ -1130,36 +1171,6 @@ MultiBot.tips.main.beast =
 "White Fang must be placed into the World by the GameMaster.|r\n\n"..
 "|cffff0000Left-Click to enable or disable the Beastmaster-Control|r\n"..
 "|cff999999(Execution-Order: System)|r";
-
---[[
-MultiBot.tips.main.lang.master =
-"Language-Selector|cffffffff\n"..
-"This Control allows you to select the Language of MultiBot.\n"..
-"If this control is active, MultiBot can have a different Language than the Client.\n"..
-"The Execution-Order shows the Receiver for Commandos.|r\n\n"..
-"|cffff0000Left-Click to show or hide the Options|r\n"..
-"|cff999999(Execution-Order: System)|r\n\n"..
-"|cffff0000Right-Click to enable or disable the Language-Selector|r\n"..
-"|cff999999(Execution-Order: System)|r";
-
-MultiBot.tips.main.lang.deDE =
-"Deutsch|cffffffff\n"..
-"Wenn du dies lesen kannst ist dies wahrscheinlich die richtige Sprache für dich.|r\n\n"..
-"|cffff0000Linksklicken um Deutsch auszuwählen|r\n"..
-"|cff999999(Execution-Order: System)|r";
-
-MultiBot.tips.main.lang.enGB =
-"British|cffffffff\n"..
-"If you can read this, this is probably the right Language for you.|r\n\n"..
-"|cffff0000Left-Click to select British|r\n"..
-"|cff999999(Execution-Order: System)|r";
-
-MultiBot.tips.main.lang.none =
-"English|cffffffff\n"..
-"If you can read this, this is probably the right Language for you.|r\n\n"..
-"|cffff0000Left-Click to select English|r\n"..
-"|cff999999(Execution-Order: System)|r";
-]]--
 
 MultiBot.tips.main.expand =
 "Expand-Switch\n|cffffffff"..
