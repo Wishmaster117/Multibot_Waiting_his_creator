@@ -19,7 +19,7 @@ end
 MultiBot.GM_THRESHOLD = 3
 
 -- DEBUG (set to true temporarily if you want to see what gets parsed)
-MultiBot.DEBUG_GM = true
+MultiBot.DEBUG_GM = false
 
 -- Multi-language patterns that capture the level number.
 -- We anchor to "account level" but allow anything between it and the number (e.g. "is: ").
