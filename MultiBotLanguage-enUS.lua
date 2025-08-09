@@ -372,7 +372,7 @@ MultiBot.tips.attack.tank =
 -- MODE --
 
 MultiBot.tips.mode.master =
-"Mode-Control\n|cffffffff"..
+"Combat Modes\n|cffffffff"..
 "Toggle a Combat Mode on or off.\n"..
 "Left-click the Options to select another Combat Mode.\n"..
 "|cffff0000Left-click to switch Combat Mode|r\n"..
@@ -398,15 +398,15 @@ MultiBot.tips.mode.grind =
 -- STAY|FOLLOW --
 
 MultiBot.tips.stallow.stay =
-"Stay|Follow\n|cffffffff"..
-"Change to Stay Command\n"..
+"Stay/Follow\n|cffffffff"..
+"Change to Stay command\n"..
 "Cancels Passive Mode.\n"..
 "|cffff0000Left-click to activate|r\n"..
 "|cff999999(Executed by: Raid, Party)|r";
 
 MultiBot.tips.stallow.follow =
-"Stay|Follow\n|cffffffff"..
-"Change to Follow Command\n"..
+"Stay/Follow\n|cffffffff"..
+"Change to Follow command\n"..
 "Cancels Passive Mode\n"..
 "|cffff0000Left-click to activate|r\n"..
 "|cff999999(Executed by: Raid, Party)|r";
