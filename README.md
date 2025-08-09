@@ -16,7 +16,12 @@ As soon as the original author returns and is able to review and merge the contr
 
 Thank you for understanding.
 
+---
+
 How To Install:
+
 1 - Download the code
+
 2 - rename "Multibot_Waiting_his_creator-main" to "Multibot"
+
 3 - Put the MultiBot folder in you game AddOns folder like \Interface\AddOns\Multibot
