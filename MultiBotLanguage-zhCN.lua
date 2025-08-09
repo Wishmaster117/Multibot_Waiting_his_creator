@@ -917,16 +917,48 @@ MultiBot.tips.units.inviteRaid40 =
 
 -- UNITS:ALL --
 
-MultiBot.tips.units.alliance = 
-"Alliance\n|cffffffff"..
-"With this Button you can bring all you Group-Members online or offline.\n"..
-"Maybe MultiBot wont be able to react fast enough and will not show all Botbars.\n\n"..
-"|cffff0000Left-Click to bring all Group-Members online|r\n"..
-"|cff999999(Execution-Order: System)|r\n\n"..
-"|cffff0000Right-Click to bring all Group-Members offline|r\n"..
-"|cff999999(Execution-Order: System)|r";
+MultiBot.tips.units.alliance =
+"登录/登出所有 PlayerBot\n|cffffffff"..
+"登录或登出你有权限访问的所有 PlayerBot。\n"..
+"根据 PlayerBot 的总数量，此功能可能需要一些时间来填充每个 PlayerBot 的按钮栏。\n\n"..
+"|cffff0000左键点击：登录所有 PlayerBot|r\n"..
+"|cff999999（执行者：系统）|r\n\n"..
+"|cffff0000右键点击：登出所有 PlayerBot|r\n"..
+"|cff999999（执行者：系统）|r";
 
--- 主菜单 --
+-- SLIDERS INTERFACE --
+
+MultiBot.tips.sliders.throttleinstalled =
+"已安装 MultiBot 限速";
+
+MultiBot.tips.sliders.frametitle =
+"MultiBot — 选项";
+
+MultiBot.tips.sliders.actionsinter =
+"自动操作间隔";
+
+MultiBot.tips.sliders.statsinter =
+"统计延迟间隔";
+
+MultiBot.tips.sliders.talentsinter =
+"自动天赋间隔";
+
+MultiBot.tips.sliders.invitsinter =
+"邀请循环间隔";
+
+MultiBot.tips.sliders.sortinter =
+"排序/刷新间隔";
+
+MultiBot.tips.sliders.messpersec =
+"每秒消息数";
+
+MultiBot.tips.sliders.maxburst =
+"最大突发数";
+
+MultiBot.tips.sliders.rstbutn =
+"重置";
+
+-- MAIN --
 
 MultiBot.tips.main.master =
 "主控制面板\n|cffffffff"..
@@ -936,6 +968,14 @@ MultiBot.tips.main.master =
 "|cff999999(执行命令: 系统)|r\n\n"..
 "|cffff0000右键单击拖动和移动 MultiBot|r\n"..
 "|cff999999(执行命令: 系统)|r";
+
+MultiBot.tips.main.options =
+"选项切换\n|cffffffff"..
+"打开 MultiBot 设置面板，带有用于操作间隔的滑块。\n"..
+"(统计 / 天赋 / 邀请 / 排序) 以及聊天限速（每秒消息数 / 突发数）。\n"..
+"设置按角色单独保存。|r\n\n"..
+"|cffff0000左键单击以打开或关闭选项面板|r\n"..
+"|cff999999（执行顺序：界面）|r";
 
 MultiBot.tips.main.coords =
 "重置坐标\n|cffffffff"..

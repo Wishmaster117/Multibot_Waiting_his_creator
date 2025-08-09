@@ -918,14 +918,47 @@ MultiBot.tips.units.inviteRaid40 =
 
 -- UNITS:ALL --
 
-MultiBot.tips.units.alliance = 
-"Alliance\n|cffffffff"..
-"With this Button you can bring all you Group-Members online or offline.\n"..
-"Maybe MultiBot wont be able to react fast enough and will not show all Botbars.\n\n"..
-"|cffff0000Left-Click to bring all Group-Members online|r\n"..
-"|cff999999(Execution-Order: System)|r\n\n"..
-"|cffff0000Right-Click to bring all Group-Members offline|r\n"..
-"|cff999999(Execution-Order: System)|r";
+MultiBot.tips.units.alliance =
+"Iniciar/Cerrar sesión de todos los PlayerBots\n|cffffffff"..
+"Inicia o cierra la sesión de todos los PlayerBots a los que tengas acceso.\n"..
+"Esta función puede tardar en llenar las barras de botones de cada PlayerBot,\n"..
+"dependiendo del número total de PlayerBots.\n\n"..
+"|cffff0000Clic izquierdo para iniciar sesión en todos los PlayerBots|r\n"..
+"|cff999999(Ejecutado por: Sistema)|r\n\n"..
+"|cffff0000Clic derecho para cerrar sesión en todos los PlayerBots|r\n"..
+"|cff999999(Ejecutado por: Sistema)|r";
+
+-- SLIDERS INTERFACE --
+
+MultiBot.tips.sliders.throttleinstalled =
+"Ограничитель MultiBot установлен";
+
+MultiBot.tips.sliders.frametitle =
+"MultiBot — Опции";
+
+MultiBot.tips.sliders.actionsinter =
+"Интервалы автоматических действий";
+
+MultiBot.tips.sliders.statsinter =
+"Интервал пинга статистики";
+
+MultiBot.tips.sliders.talentsinter =
+"Интервал автораспределения талантов";
+
+MultiBot.tips.sliders.invitsinter =
+"Интервал цикла приглашений";
+
+MultiBot.tips.sliders.sortinter =
+"Интервал сортировки/обновления";
+
+MultiBot.tips.sliders.messpersec =
+"Сообщений в секунду";
+
+MultiBot.tips.sliders.maxburst =
+"Максимальный рывок";
+
+MultiBot.tips.sliders.rstbutn =
+"Сброс";
 
 -- MAIN --
 
@@ -937,6 +970,14 @@ MultiBot.tips.main.master =
 "|cff999999(Порядок выполнения: Система)|r\n\n"..
 "|cffff0000Правый клик - переместить MultiBot|r\n"..
 "|cff999999(Порядок выполнения: Система)|r";
+
+MultiBot.tips.main.options =
+"Переключатель опций\n|cffffffff"..
+"Открывает панель настроек MultiBot с ползунками для интервалов действий.\n"..
+"(Статистика / Таланты / Приглашение / Сортировка) и ограничения чата (Сообщений в секунду / Рывок).\n"..
+"Настройки сохраняются для каждого персонажа.|r\n\n"..
+"|cffff0000ЛКМ — открыть или закрыть панель опций|r\n"..
+"|cff999999(Порядок выполнения: Интерфейс)|r";
 
 MultiBot.tips.main.coords =
 "Сброс координат\n|cffffffff"..

@@ -1,4 +1,101 @@
 MultiBot = CreateFrame("Frame", nil, UIParent)
+
+-- GM core --
+MultiBot.GM = MultiBot.GM or false
+
+function MultiBot.ApplyGMVisibility() end
+
+function MultiBot.SetGM(isGM)
+  isGM = not not isGM
+  if MultiBot.GM ~= isGM then
+    MultiBot.GM = isGM
+    if MultiBot.ApplyGMVisibility then MultiBot.ApplyGMVisibility() end
+  end
+end
+-- end GM core --
+
+-- Account level detection (multi-locale, no hardcoding in handler) --
+-- Set your GM threshold here (>= value means GM). ONLY set it once.
+MultiBot.GM_THRESHOLD = 3
+
+-- DEBUG (set to true temporarily if you want to see what gets parsed)
+MultiBot.DEBUG_GM = true
+
+-- Multi-language patterns that capture the level number.
+-- We anchor to "account level" but allow anything between it and the number (e.g. "is: ").
+MultiBot._acctlvl_patterns = {
+  -- EN (covers "Your account level is: 3")
+  "[Aa]ccount%W*[Ll]evel.-(%d+)",
+  -- FR
+  "[Nn]iveau%W*de%W*compte.-(%d+)",
+  -- ES
+  "[Nn]ivel%W*de%W*cuenta.-(%d+)",
+  -- DE (Accountstufe/Kontostufe)
+  "[Aa]ccount%W*[Ss]tufe.-(%d+)",
+  "[Kk]onto%W*[Ss]tufe.-(%d+)",
+  -- RU
+  "Уровень%W*аккаунта.-(%d+)",
+  -- ZH
+  "账号%W*等级.-(%d+)",
+  "帳號%W*等級.-(%d+)",
+  -- KO
+  "계정%W*등급.-(%d+)",
+}
+
+-- Fallbacks:
+--  1) number after ':' near the end ("...: 3")
+--  2) last number in a short line (avoid collisions)
+local function _acctlvl_fallbacks(msg)
+  local n = tonumber(string.match(msg, "[:：]%s*(%d+)%s*$"))
+  if n then return n end
+  if #msg <= 60 then
+    local last = nil
+    for d in string.gmatch(msg, "(%d+)") do last = d end
+    if last then return tonumber(last) end
+  end
+  return nil
+end
+
+function MultiBot.ParseAccountLevel(msg)
+  if type(msg) ~= "string" then return nil end
+
+  -- Explicit fast-path for the common EN string:
+  local capEN = msg:match("[Yy]our%W*[Aa]ccount%W*[Ll]evel%W*is%W*:%s*(%d+)")
+  if capEN then return tonumber(capEN) end
+
+  -- Try known patterns
+  for _, pat in ipairs(MultiBot._acctlvl_patterns) do
+    local cap = msg:match(pat)
+    if cap then
+      local n = tonumber(cap)
+      if n then return n end
+    end
+  end
+
+  -- Fallbacks
+  return _acctlvl_fallbacks(msg)
+end
+
+function MultiBot.GM_DetectFromSystem(msg)
+  MultiBot.LastAccountLevel = lvl
+  local lvl = MultiBot.ParseAccountLevel(msg)
+
+  if MultiBot.DEBUG_GM and DEFAULT_CHAT_FRAME then
+    DEFAULT_CHAT_FRAME:AddMessage(("[GMDetect] msg='%s' -> lvl=%s, thr=%d"):format(tostring(msg), tostring(lvl), MultiBot.GM_THRESHOLD))
+  end
+
+  if lvl ~= nil then
+    MultiBot.SetGM(lvl >= (MultiBot.GM_THRESHOLD or 2))
+    if MultiBot.DEBUG_GM and DEFAULT_CHAT_FRAME then
+      DEFAULT_CHAT_FRAME:AddMessage(("[GMDetect] GM=%s"):format(tostring(MultiBot.GM)))
+    end
+    if MultiBot.RaidPool then MultiBot.RaidPool("player") end
+    return true
+  end
+  return false
+end
+-- end account level detection --
+
 MultiBot:RegisterEvent("ADDON_LOADED")
 MultiBot:RegisterEvent("WORLD_MAP_UPDATE")
 MultiBot:RegisterEvent("PLAYER_ENTERING_WORLD")

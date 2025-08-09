@@ -879,6 +879,38 @@ MultiBot.tips.units.alliance =
 "|cffff0000Right-click to log out all PlayerBots|r\n"..
 "|cff999999(Executed by: System)|r";
 
+-- SLIDERS INTERFACE --
+
+MultiBot.tips.sliders.throttleinstalled =
+"MultiBot throttle installed";
+
+MultiBot.tips.sliders.frametitle =
+"MultiBot — Options";
+
+MultiBot.tips.sliders.actionsinter =
+"Automatic action intervals";
+
+MultiBot.tips.sliders.statsinter =
+"Stats ping interval";
+
+MultiBot.tips.sliders.talentsinter =
+"Auto talents interval";
+
+MultiBot.tips.sliders.invitsinter =
+"Invitation loop interval";
+
+MultiBot.tips.sliders.sortinter =
+"Sorting/refresh interval";
+
+MultiBot.tips.sliders.messpersec =
+"Messages per second";
+
+MultiBot.tips.sliders.maxburst =
+"Maximum burst";
+
+MultiBot.tips.sliders.rstbutn =
+"Reset";
+
 -- MAIN --
 
 MultiBot.tips.main.master =
@@ -888,6 +920,14 @@ MultiBot.tips.main.master =
 "|cff999999(Executed by: System)|r\n\n"..
 "|cffff0000Right-click to drag and move MultiBot windows|r\n"..
 "|cff999999(Executed by: System)|r";
+
+MultiBot.tips.main.options =
+"Options-Switch\n|cffffffff"..
+"Opens the MultiBot settings panel with sliders for action intervals.\n"..
+"(Stats / Talents / Invite / Sort) and chat throttling (Messages per second / Burst).\n"..
+"Settings are saved per character.|r\n\n"..
+"|cffff0000Left-Click to open or close the options panel|r\n"..
+"|cff999999(Execution-Order: Interface)|r";
 
 MultiBot.tips.main.coords =
 "Reset Window Locations\n|cffffffff"..

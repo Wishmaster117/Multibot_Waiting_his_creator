@@ -906,24 +906,57 @@ MultiBot.tips.units.inviteRaid25 =
 "|cffff0000팀원을 초대하려면 왼쪽 클릭|r\n"..
 "|cff999999(명령 실행: 시스템)|r";
 
-MultiBot.tips.units.inviteRaid40 =
-"40명으로 구성된 팀\n|cffffffff"..
-"이 버튼을 사용하여 팀을 구성하세요.\n"..
-"이 기능은 클래스 필터를 무시하고 선택한 팀 목록에서 유닛을 가져옵니다.\n"..
-"팀 목록이 끝나거나 팀 구성원이 40명이 되면 중단됩니다.|r\n\n"..
-"|cffff0000팀원을 초대하려면 왼쪽 클릭|r\n"..
-"|cff999999(명령 실행: 시스템)|r";
+MultiBot.tips.units.alliance =
+"모든 PlayerBot 로그인/로그아웃\n|cffffffff"..
+"접근 권한이 있는 모든 PlayerBot을 로그인하거나 로그아웃합니다.\n"..
+"이 기능은 PlayerBot의 총 수에 따라 각 PlayerBot의 버튼 바를 채우는 데 시간이 걸릴 수 있습니다.\n\n"..
+"|cffff0000왼쪽 클릭: 모든 PlayerBot 로그인|r\n"..
+"|cff999999(실행 주체: 시스템)|r\n\n"..
+"|cffff0000오른쪽 클릭: 모든 PlayerBot 로그아웃|r\n"..
+"|cff999999(실행 주체: 시스템)|r";
 
 -- UNITS:ALL --
 
 MultiBot.tips.units.alliance = 
-"Alliance\n|cffffffff"..
-"With this Button you can bring all you Group-Members online or offline.\n"..
-"Maybe MultiBot wont be able to react fast enough and will not show all Botbars.\n\n"..
-"|cffff0000Left-Click to bring all Group-Members online|r\n"..
-"|cff999999(Execution-Order: System)|r\n\n"..
-"|cffff0000Right-Click to bring all Group-Members offline|r\n"..
-"|cff999999(Execution-Order: System)|r";
+"얼라이언스 / 호드\n|cffffffff"..
+"이 버튼을 사용하면 모든 파티원을 온라인 또는 오프라인 상태로 전환할 수 있습니다.\n"..
+"MultiBot이 충분히 빠르게 반응하지 못해 모든 봇바를 표시하지 못할 수도 있습니다.\n\n"..
+"|cffff0000왼쪽 클릭: 모든 파티원을 온라인 상태로 전환|r\n"..
+"|cff999999(실행 순서: 시스템)|r\n\n"..
+"|cffff0000오른쪽 클릭: 모든 파티원을 오프라인 상태로 전환|r\n"..
+"|cff999999(실행 순서: 시스템)|r";
+
+-- SLIDERS INTERFACE --
+
+MultiBot.tips.sliders.throttleinstalled =
+"MultiBot 제한이 설치되었습니다";
+
+MultiBot.tips.sliders.frametitle =
+"MultiBot — 옵션";
+
+MultiBot.tips.sliders.actionsinter =
+"자동 작업 간격";
+
+MultiBot.tips.sliders.statsinter =
+"통계 핑 간격";
+
+MultiBot.tips.sliders.talentsinter =
+"자동 특성 간격";
+
+MultiBot.tips.sliders.invitsinter =
+"초대 루프 간격";
+
+MultiBot.tips.sliders.sortinter =
+"정렬/새로고침 간격";
+
+MultiBot.tips.sliders.messpersec =
+"초당 메시지 수";
+
+MultiBot.tips.sliders.maxburst =
+"최대 버스트";
+
+MultiBot.tips.sliders.rstbutn =
+"초기화";
 
 -- MAIN --
 
@@ -935,6 +968,14 @@ MultiBot.tips.main.master =
 "|cff999999(명령 실행: 시스템)|r\n\n"..
 "|cffff0000마우스 오른쪽 버튼을 클릭하여 MultiBot을 드래그하여 이동합니다.|r\n"..
 "|cff999999(명령 실행: 시스템)|r";
+
+MultiBot.tips.main.options =
+"옵션 전환\n|cffffffff"..
+"작업 간격 슬라이더가 있는 MultiBot 설정 패널을 엽니다.\n"..
+"(통계 / 특성 / 초대 / 정렬) 및 채팅 제한 (초당 메시지 수 / 버스트).\n"..
+"설정은 캐릭터별로 저장됩니다.|r\n\n"..
+"|cffff0000왼쪽 클릭으로 옵션 패널 열기/닫기|r\n"..
+"|cff999999(실행 순서: 인터페이스)|r";
 
 MultiBot.tips.main.coords =
 "좌표 재설정\n|cffffffff"..

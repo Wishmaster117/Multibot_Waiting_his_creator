@@ -917,14 +917,48 @@ MultiBot.tips.units.inviteRaid40 =
 
 -- UNITS:ALL --
 
-MultiBot.tips.units.alliance = 
-"Alliance\n|cffffffff"..
-"Mit dieser Schaltfläche bringt Ihr alle Gruppenmitglieder online oder offline.\n"..
-"Möglicherweise kommt MultiBot mit der Geschwindigkeit nicht klar und verschluckt einige Botbars.\n\n"..
-"|cffff0000Linksklicken um die Gruppenmitglieder online zu bringen|r\n"..
-"|cff999999(Ausführreihenfolge: System)|r\n\n"..
-"|cffff0000Rechtsklicken um die Gruppenmitglieder offlien zu bringen|r\n"..
-"|cff999999(Ausführreihenfolge: System)|r";
+MultiBot.tips.units.alliance =
+"Alle PlayerBots ein-/ausloggen\n|cffffffff"..
+"Loggt alle PlayerBots ein oder aus, auf die du Zugriff hast.\n"..
+"Diese Funktion kann je nach Gesamtanzahl der PlayerBots einige Zeit benötigen,\n"..
+"um die Buttonleisten für jeden PlayerBot zu laden.\n\n"..
+"|cffff0000Linksklick, um alle PlayerBots einzuloggen|r\n"..
+"|cff999999(Ausgeführt von: System)|r\n\n"..
+"|cffff0000Rechtsklick, um alle PlayerBots auszuloggen|r\n"..
+"|cff999999(Ausgeführt von: System)|r";
+
+-- SLIDERS INTERFACE --
+
+MultiBot.tips.sliders.throttleinstalled =
+"MultiBot-Drossel installiert";
+
+MultiBot.tips.sliders.frametitle =
+"MultiBot — Optionen";
+
+MultiBot.tips.sliders.actionsinter =
+"Intervalle für automatische Aktionen";
+
+MultiBot.tips.sliders.statsinter =
+"Statistik-Ping-Intervall";
+
+MultiBot.tips.sliders.talentsinter =
+"Intervall für automatische Talente";
+
+MultiBot.tips.sliders.invitsinter =
+"Einladungs-Schleifenintervall";
+
+MultiBot.tips.sliders.sortinter =
+"Sortier-/Aktualisierungsintervall";
+
+MultiBot.tips.sliders.messpersec =
+"Nachrichten pro Sekunde";
+
+MultiBot.tips.sliders.maxburst =
+"Maximale Burst";
+
+MultiBot.tips.sliders.rstbutn =
+"Zurücksetzen";
+
 
 -- MAIN --
 
@@ -936,6 +970,14 @@ MultiBot.tips.main.master =
 "|cff999999(Ausführreihenfolge: System)|r\n\n"..
 "|cffff0000Rechtsklicken und halten um MultiBar zu verschieben|r\n"..
 "|cff999999(Ausführreihenfolge: System)|r";
+
+MultiBot.tips.main.options =
+"Optionen-Schalter\n|cffffffff"..
+"Öffnet das MultiBot-Einstellungsfenster mit Schiebereglern für Aktionsintervalle.\n"..
+"(Statistiken / Talente / Einladung / Sortieren) und Chat-Drosselung (Nachrichten pro Sekunde / Burst).\n"..
+"Einstellungen werden pro Charakter gespeichert.|r\n\n"..
+"|cffff0000Linksklick zum Öffnen oder Schließen des Optionsfensters|r\n"..
+"|cff999999(Ausführungsreihenfolge: Interface)|r";
 
 MultiBot.tips.main.coords =
 "Reset-Coords\n|cffffffff"..
